@@ -685,3 +685,79 @@ textarea.form-control {
     gap: 10px;
   }
 }
+
+/* أضف أو عدل هذه الأكواد في ملف الـ CSS */
+
+/* تحسين الهيدر للهاتف */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 70px;
+  }
+
+  /* إخفاء أزرار الدخول العادية في الهواتف الصغيرة لتوفير مساحة للوجو */
+  .auth-buttons.desktop-only {
+    display: none; 
+  }
+
+  .logo {
+    position: static; /* إلغاء الـ Absolute اللي كان يسبب تداخل */
+    transform: none;
+    font-size: 1.5rem;
+  }
+
+  .nav-links-wrapper {
+    display: none; /* مخفية افتراضياً */
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    border-top: 1px solid #eee;
+    z-index: 999;
+  }
+
+  .nav-links-wrapper.active {
+    display: flex; /* تظهر عند الضغط على الزر */
+  }
+
+  .nav-links-wrapper a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f5f5f5;
+    text-decoration: none;
+    color: var(--text-dark);
+    text-align: right;
+  }
+
+  /* تصغير حجم خط الـ Typewriter في الهواتف */
+  .loader {
+    font-size: 1.8rem;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
+/* تحسين عرض الصور في قسم "عنا" للهاتف */
+@media (max-width: 576px) {
+  .image-box {
+    height: 300px; /* تقليل الارتفاع في الشاشات الصغيرة جداً */
+  }
+  
+  .hero {
+    padding: 120px 0 60px;
+  }
+}
