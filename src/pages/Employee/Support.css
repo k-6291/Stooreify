@@ -1,0 +1,309 @@
+.support-page {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  background-color: #fafafa;
+  min-height: 100vh;
+  direction: rtl;
+  padding-top: 64px;
+  padding-left: 260px;
+  transition: padding-left 0.3s ease;
+}
+
+.support-page.sidebar-collapsed {
+  padding-left: 70px;
+}
+
+/* الهيدر */
+.support-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 110;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FF6B00;
+}
+
+.user-info {
+  color: #333;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  background: #2D2D2D;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 24px;
+  text-align: right;
+  color: #E0E0E0;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: rgba(255,107,0,0.2);
+}
+
+.nav-item.active {
+  background: rgba(255,107,0,0.3);
+  color: white;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  width: 4px;
+  background: #FF6B00;
+  border-radius: 0 2px 2px 0;
+}
+
+.nav-icon {
+  margin-left: 16px;
+  font-size: 20px;
+}
+
+.nav-text {
+  flex: 1;
+  text-align: right;
+}
+
+.sidebar-collapsed .nav-text {
+  display: none;
+}
+
+.sidebar-collapsed .nav-item {
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.sidebar-collapsed .nav-icon {
+  margin-left: 0;
+}
+
+.collapse-btn {
+  background: #3A3A3A;
+  color: #CCC;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+
+.collapse-btn:hover {
+  background: #4A4A4A;
+}
+
+/* المحتوى */
+.main-content {
+  padding: 32px;
+}
+
+/* الجداول */
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 16px;
+  text-align: right;
+  border-bottom: 1px solid #EEE;
+}
+
+.table th {
+  background: #F8F8F8;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+}
+
+.action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+  margin: 0 4px;
+}
+
+.action-btn.approve {
+  background: #28A745;
+  color: white;
+}
+
+.action-btn.approve:hover {
+  background: #218838;
+}
+
+.action-btn.reject {
+  background: #DC3545;
+  color: white;
+}
+
+.action-btn.reject:hover {
+  background: #C82333;
+}
+
+.action-btn.update {
+  background: #FF6B00;
+  color: white;
+}
+
+.action-btn.update:hover {
+  background: #E65100;
+}
+
+.no-data {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+
+/* محدد اليوم */
+.day-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.day-btn {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.day-btn.active {
+  background: #FF6B00;
+  color: white;
+  border-color: #FF6B00;
+}
+
+/* رسالة النجاح */
+.success-message {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #28A745;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* الوضع الداكن */
+body.dark-mode .support-page {
+  background: #121212;
+  color: #E0E0E0;
+}
+
+body.dark-mode .support-header {
+  background: #1E1E1E;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .user-info {
+  color: #E0E0E0;
+}
+
+body.dark-mode .sidebar {
+  background: #1E1E1E;
+}
+
+body.dark-mode .nav-item:hover {
+  background: rgba(255,107,0,0.1);
+}
+
+body.dark-mode .table-container {
+  background: #2D2D2D;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .table th {
+  background: #3A3A3A;
+  color: #FFD54F;
+}
+
+body.dark-mode .table td {
+  border-color: #444;
+}
+
+body.dark-mode .success-message {
+  background: #2E7D32;
+}
+
+.action-btn.return {
+  background: #F44336;
+  color: white;
+}
+.action-btn.return:hover {
+  background: #D32F2F;
+}
+
+.updated-today {
+  background-color: #e3f2fd;
+  font-weight: bold;
+  color: #1976d2;
+}

@@ -1,0 +1,682 @@
+/* Orders.css - محدث */
+
+/* === دعم الوضع الداكن === */
+body.dark-mode .orders-content {
+  color: #E0E0E0;
+}
+
+body.dark-mode .orders-section {
+  background: #2D2D2D;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .orders-table th {
+  background: #3A3A3A;
+  color: #FFD54F;
+}
+
+body.dark-mode .orders-table td {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .orders-table tbody tr:hover {
+  background: #353535;
+}
+
+/* === الإشعارات === */
+.notifications {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification {
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+  background: #4CAF50;
+}
+
+.notification.error {
+  background: #F44336;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* === باقي الأنماط كما هي مع تحسينات بسيطة === */
+.orders-content {
+  padding: 32px;
+}
+
+.orders-section {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-header h2 {
+  color: #222;
+  font-size: 28px;
+  margin: 0;
+}
+
+.add-btn {
+  background: #FF6B00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: 600;
+}
+
+.add-btn:hover {
+  background: #E65100;
+}
+
+/* جدول الطلبات */
+.orders-table-container {
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  direction: rtl;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 16px;
+  text-align: right;
+  border-bottom: 1px solid #EEE;
+}
+
+.orders-table th {
+  background: #F8F8F8;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  min-width: 100px;
+}
+
+.status.unconfirmed {
+  background: linear-gradient(135deg, #FFF9C4, #FFF176);
+  color: #4d4543;
+}
+
+/* مؤكد - أخضر */
+.status.confirmed {
+  background:  #81c784;
+  color: #1a241a;
+}
+
+/* قيد التوصيل - أزرق */
+.status.shipping {
+  background: linear-gradient(135deg, #639fd0, #64B5F6);
+  color: #4b6488;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.delete-btn,
+.confirm-btn,
+.details-btn,
+.send-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.delete-btn {
+  background: #DC3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #C82333;
+}
+
+.confirm-btn {
+  background: #28A745;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background: #218838;
+}
+
+.details-btn {
+  background: #17A2B8;
+  color: white;
+}
+
+.details-btn:hover {
+  background: #138496;
+}
+
+.send-btn {
+  background: #FF6B00;
+  color: white;
+}
+
+.send-btn:hover {
+  background: #E65100;
+}
+
+/* النماذج المنبثقة */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+  direction: rtl;
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .modal {
+  background: #2D2D2D;
+  color: #E0E0E0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #EEE;
+}
+
+body.dark-mode .modal-header {
+  border-bottom: 1px solid #444;
+}
+
+.modal-header h3 {
+  color: #222;
+  margin: 0;
+  font-size: 22px;
+}
+
+body.dark-mode .modal-header h3 {
+  color: #FFD54F;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #999;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+body.dark-mode .close-btn:hover {
+  color: #FFD54F;
+}
+
+.add-order-form {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+body.dark-mode .form-group label {
+  color: #E0E0E0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid #DDD;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+  background: #3A3A3A;
+  border-color: #555;
+  color: #E0E0E0;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FF6B00;
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2);
+}
+
+/* كمية المنتج */
+.product-quantity {
+  font-size: 13px;
+  color: #666;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+body.dark-mode .product-quantity {
+  color: #AAA;
+}
+
+/* زر الإرسال */
+.modal-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.cancel-btn {
+  background: #6C757D;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #5A6268;
+}
+
+.submit-btn {
+  background: #FF6B00;
+  color: white;
+}
+
+.submit-btn:hover {
+  background: #E65100;
+}
+
+/* تفاصيل الطلب */
+.order-content {
+  padding: 24px;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+body.dark-mode .detail-row {
+  border-bottom: 1px solid #444;
+}
+
+.detail-label {
+  flex: 1;
+  font-weight: 600;
+  color: #333;
+}
+
+body.dark-mode .detail-label {
+  color: #FFD54F;
+}
+
+.detail-value {
+  flex: 2;
+  color: #666;
+}
+
+body.dark-mode .detail-value {
+  color: #BBB;
+}
+
+/* الجوال */
+@media (max-width: 768px) {
+  .orders-content {
+    padding: 20px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* مكان التوصيل - محاذاة أفقية نظيفة */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  align-items: center; /* ✅ هذا يحاذي الأزرار مع النص */
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #e3d5d5;
+}
+
+body.dark-mode .radio-label {
+  color: #E0E0E0;
+}
+
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+
+body.dark-mode .section-header h2 {
+  color: #e1dfda; /* أصفر ذهبي فاتح — يتناسق مع العلامة */
+}
+
+/* === نافذة تأكيد الطلب -  === */
+.confirm-modal {
+  max-width: 500px;
+}
+
+.confirm-message {
+  text-align: center;
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+body.dark-mode .confirm-message {
+  color: #BBB;
+}
+
+/* خيارات التأكيد */
+.confirmation-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+body.dark-mode .option-card {
+  background: #3A3A3A;
+  border-color: #444;
+  color: #E0E0E0;
+}
+
+.option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.option-card input[type="radio"] {
+  display: none;
+}
+
+.option-card input[type="radio"]:checked + .option-content {
+  border-color: #FF6B00;
+  background: #fff5f0;
+}
+
+body.dark-mode .option-card input[type="radio"]:checked + .option-content {
+  background: #2D2D2D;
+  box-shadow: 0 0 0 2px #FF6B00;
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.option-icon {
+  font-size: 28px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.option-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+body.dark-mode .option-title {
+  color: #E0E0E0;
+}
+
+.option-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+body.dark-mode .option-desc {
+  color: #BBB;
+}
+
+/* حقل الملاحظة */
+.form-group {
+  margin-top: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 100px;
+  color: #333;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+body.dark-mode .form-group label {
+  color: #E0E0E0;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #DDD;
+  font-size: 16px;
+  resize: vertical;
+  min-height: 100px;
+  background: white;
+}
+
+body.dark-mode .form-group textarea {
+  background: #3A3A3A;
+  border-color: #555;
+  color: #E0E0E0;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FF6B00;
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2);
+}
+
+/* أزرار الإجراءات */
+.modal-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  min-width: 120px;
+}
+
+.cancel-btn {
+  background: #6C757D;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #5A6268;
+  transform: translateY(-2px);
+}
+
+.submit-btn {
+  background: #FF6B00;
+  color: white;
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.2);
+}
+
+.submit-btn:hover {
+  background: #E65100;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 0, 0.3);
+}
+
+/* الوضع الداكن للنافذة */
+body.dark-mode .confirm-modal {
+  background: #2D2D2D;
+  color: #E0E0E0;
+}
+
+body.dark-mode .modal-header {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .modal-header h3 {
+  color: #FFD54F;
+}
+
+body.dark-mode .close-btn:hover {
+  color: #FFD54F;
+}

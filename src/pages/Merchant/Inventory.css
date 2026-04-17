@@ -1,0 +1,451 @@
+/* Inventory.css - النسخة المطورة */
+
+/* === دعم الوضع الداكن === */
+body.dark-mode .inventory-page {
+  background: #2D2D2D;
+  color: #E0E0E0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .product-card {
+  background: #3A3A3A;
+  border-color: #444;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .product-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .product-image {
+  background: #444;
+  border-bottom: 1px solid #555;
+}
+
+body.dark-mode .detail-label {
+  color: #BBB;
+}
+
+body.dark-mode .detail-value {
+  color: #E0E0E0;
+}
+
+body.dark-mode .form-group label {
+  color: #E0E0E0;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+  background: #444;
+  border-color: #555;
+  color: #E0E0E0;
+}
+
+body.dark-mode .dropzone {
+  background: #444;
+  border: 2px dashed #555;
+  color: #BBB;
+}
+
+body.dark-mode .dropzone.drag-active {
+  border-color: #FF6B00;
+  background: #3A3A3A;
+}
+
+body.dark-mode .close-btn:hover {
+  color: #FFD54F;
+}
+
+/* === باقي الأنماط === */
+.inventory-page {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  direction: rtl;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.inventory-header h2 {
+  color: #222;
+  font-size: 28px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.add-product-btn {
+  background: #FF6B00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.2);
+}
+
+.add-product-btn:hover {
+  background: #E65100;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 0, 0.3);
+}
+
+/* شبكة المنتجات */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.product-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+.product-info {
+  padding: 24px;
+}
+
+.product-name {
+  color: #222;
+  font-size: 18px;
+  margin: 0 0 18px 0;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: #666;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* حالات المنتج - ألوان تعبيرية */
+.status {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  min-width: 90px;
+}
+
+.status.stored {
+  background: linear-gradient(135deg, #C8E6C9, #81C784);
+  color: #1B5E20;
+  box-shadow: 0 2px 4px rgba(129, 199, 132, 0.3);
+}
+
+.status.in_office {
+  background: linear-gradient(135deg, #BBDEFB, #64B5F6);
+  color: #0D47A1;
+  box-shadow: 0 2px 4px rgba(100, 181, 246, 0.3);
+}
+
+.status.pending {
+  background: linear-gradient(135deg, #FFF9C4, #FFF176);
+  color: #5D4037;
+  box-shadow: 0 2px 4px rgba(255, 241, 118, 0.3);
+}
+
+/* النماذج المنبثقة */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+  direction: rtl;
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  color: #222;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #999;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.add-product-form {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  border: 1px solid #DDD;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* قائمة نوع المنتج - مخصصة */
+.custom-select {
+  position: relative;
+}
+
+.custom-select select {
+  appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") no-repeat right 12px center/16px 16px;
+}
+
+/* منطقة سحب الصور */
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #fafafa;
+}
+
+.dropzone:hover,
+.dropzone.drag-active {
+  border-color: #FF6B00;
+  background: #fff5f0;
+}
+
+.dropzone-label {
+  display: block;
+  cursor: pointer;
+}
+
+.dropzone-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  color: #FF6B00;
+}
+
+.dropzone-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.cancel-btn {
+  background: #6C757D;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #5A6268;
+  transform: translateY(-2px);
+}
+
+.submit-btn {
+  background: #FF6B00;
+  color: white;
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.2);
+}
+
+.submit-btn:hover {
+  background: #E65100;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 0, 0.3);
+}
+
+/* معلومات الجلب */
+.pickup-info {
+  padding: 0 24px 24px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #666;
+}
+
+.info-value {
+  font-weight: 600;
+  color: #333;
+}
+
+/* الجوال */
+@media (max-width: 768px) {
+  .inventory-page {
+    padding: 20px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .product-image {
+    height: 200px;
+  }
+  
+  .modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-btn,
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-info {
+    padding: 18px;
+  }
+  
+  .product-name {
+    font-size: 16px;
+  }
+}
+
+body.dark-mode .inventory-header h2 {
+  color: #e1dfda; /* أصفر ذهبي فاتح — يتناسق مع العلامة */
+}

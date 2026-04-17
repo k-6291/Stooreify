@@ -1,0 +1,167 @@
+/* === دعم الوضع الداكن - مكتمل === */
+body.dark-mode .shipping-page {
+  background: #2D2D2D;
+  color: #E0E0E0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .shipping-table {
+  background: #2D2D2D; /* خلفية الجدول */
+}
+
+body.dark-mode .shipping-table th {
+  background: #3A3A3A;
+  color: #FFD54F;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .shipping-table td {
+  color: #BBB;
+  background: #2D2D2D; /* خلفية الخلايا */
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .shipping-table tbody tr:hover {
+  background: #353535; /* خلفية عند التحويم */
+}
+
+
+/* === باقي الأنماط === */
+.shipping-page {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  direction: rtl;
+}
+
+.shipping-header {
+  margin-bottom: 32px;
+}
+
+.shipping-header h2 {
+  color: #222;
+  font-size: 28px;
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* جدول الطلبات المرسلة */
+.shipping-table-container {
+  overflow-x: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.shipping-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.shipping-table th,
+.shipping-table td {
+  padding: 18px 16px;
+  text-align: right;
+  border-bottom: 1px solid #eee;
+}
+
+.shipping-table th {
+  background: #f8f9fa;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  font-size: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.shipping-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.shipping-table tbody tr:hover {
+  background: #fafafa;
+  transform: scale(1.005);
+}
+
+.shipping-table td {
+  font-size: 15px;
+  color: #555;
+}
+
+/* حالة الطلبات - لون أخضر موحد كما طلبت */
+.status {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  min-width: 110px;
+  background: linear-gradient(135deg, #C8E6C9, #81C784);
+  color: #1B5E20;
+  box-shadow: 0 2px 4px rgba(129, 199, 132, 0.3);
+}
+
+/* حالة فارغة */
+.shipping-table td[colspan] {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* الجوال */
+@media (max-width: 768px) {
+  .shipping-page {
+    padding: 20px;
+  }
+  
+  .shipping-header h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .shipping-table th,
+  .shipping-table td {
+    padding: 14px 10px;
+    font-size: 14px;
+  }
+  
+  .status {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shipping-page {
+    padding: 16px;
+  }
+  
+  .shipping-header h2 {
+    font-size: 22px;
+  }
+  
+  .shipping-table th,
+  .shipping-table td {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    font-size: 12px;
+    min-width: 80px;
+  }
+}
+
+body.dark-mode .shipping-header h2 {
+  color: #e1dfda; /* أصفر ذهبي فاتح — يتناسق مع العلامة */
+}

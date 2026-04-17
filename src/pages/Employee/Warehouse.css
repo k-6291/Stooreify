@@ -1,0 +1,311 @@
+.warehouse-page {
+  direction: rtl;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.warehouse-header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-info {
+  font-size: 1rem;
+}
+
+.warehouse-sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  background: #2D2D2D;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, width 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 24px;
+  text-align: right;
+  color: #E0E0E0;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: rgba(255,107,0,0.2);
+}
+
+.nav-item.active {
+  background: rgba(255,107,0,0.3);
+  color: white;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  width: 4px;
+  background: #FF6B00;
+  border-radius: 0 2px 2px 0;
+}
+
+.nav-icon {
+  margin-left: 16px;
+  font-size: 20px;
+}
+
+.nav-text {
+  flex: 1;
+  text-align: right;
+}
+
+.warehouse-main-content {
+  padding: 2rem;
+  margin-top: 64px;
+  margin-left: 260px;
+}
+
+.incoming-section h2,
+.section h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.incoming-table-container,
+.table-container {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.incoming-table,
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.incoming-table th,
+.incoming-table td,
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: right;
+  border-bottom: 1px solid #eee;
+}
+
+.incoming-table th,
+.table th {
+  background-color: #34495e;
+  color: white;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.inspect {
+  background-color: #FF6B00;
+  color: white;
+}
+
+.inspect:hover {
+  background-color: #E65100;
+}
+
+/* نافذة الفحص */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.inspection-options,
+.restock-options,
+.new-boxes-input {
+  margin: 20px 0;
+}
+
+.option-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.option-group button {
+  margin: 0 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #FF6B00;
+  color: white;
+}
+
+.option-group button:hover {
+  background: #E65100;
+}
+
+.restock-option {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.new-boxes-input .box-input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.new-boxes-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.new-boxes-input button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #6C757D;
+  color: white;
+}
+
+.close-btn {
+  background: #6C757D;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+
+/* الوضع الداكن */
+body.dark-mode .warehouse-main-content {
+  background: #121212;
+  color: #E0E0E0;
+}
+
+body.dark-mode .warehouse-header {
+  background: #1E1E1E;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .user-info {
+  color: #E0E0E0;
+}
+
+body.dark-mode .table-container,
+body.dark-mode .incoming-table-container {
+  background: #2D2D2D;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .table th,
+body.dark-mode .incoming-table th {
+  background: #3A3A3A;
+  color: #FFD54F;
+}
+
+body.dark-mode .table td,
+body.dark-mode .incoming-table td {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .modal-content {
+  background: #2D2D2D;
+  color: #E0E0E0;
+}
+
+body.dark-mode .modal-content h3 {
+  color: #FFD54F;
+}
+
+body.dark-mode .option-group button {
+  background: #FF8F00;
+}
+
+body.dark-mode .option-group button:hover {
+  background: #FFA000;
+}
+
+body.dark-mode .close-btn {
+  background: #4A4A4A;
+}
+
+body.dark-mode .restock-option {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark-mode .no-data {
+  color: #AAA;
+}

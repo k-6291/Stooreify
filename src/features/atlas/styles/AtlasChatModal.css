@@ -1,0 +1,195 @@
+/* frontend/src/features/atlas/styles/AtlasChatModal.css */
+.atlas-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 2000;
+}
+
+.atlas-modal {
+  width: 95%;
+  max-width: 500px;
+  height: 85vh;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+.dark-mode .atlas-modal {
+  background: #1e1e1e;
+  color: #E0E0E0;
+}
+
+.atlas-modal-header {
+  padding: 16px 20px;
+  background: #FF6B00;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px 16px 0 0;
+}
+
+.atlas-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.atlas-chat-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.atlas-message {
+  display: flex;
+  gap: 12px;
+  max-width: 85%;
+}
+
+.atlas-message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.atlas-avatar, .user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.atlas-avatar {
+  background: #1E88E5;
+  color: white;
+}
+
+.user-avatar {
+  background: #FF6B00;
+  color: white;
+}
+
+.message-content {
+  padding: 12px 16px;
+  border-radius: 18px;
+  position: relative;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.atlas-message.atlas .message-content {
+  background: #E3F2FD;
+  color: #1A237E;
+  border-bottom-left-radius: 4px;
+}
+
+.dark-mode .atlas-message.atlas .message-content {
+  background: #2C2C2C;
+  color: #E0E0E0;
+}
+
+.atlas-message.user .message-content {
+  background: #FF6B00;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.message-time {
+  font-size: 11px;
+  margin-top: 6px;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.atlas-message.user .message-time {
+  text-align: left;
+}
+
+.atlas-input-form {
+  display: flex;
+  padding: 16px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.dark-mode .atlas-input-form {
+  background: #1e1e1e;
+  border-top-color: #333;
+}
+
+.atlas-input-form input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.dark-mode .atlas-input-form input {
+  background: #2D2D2D;
+  border-color: #444;
+  color: #E0E0E0;
+}
+
+.atlas-input-form button {
+  background: #FF6B00;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 20px;
+  margin-left: 12px;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.atlas-input-form button:hover:not(:disabled) {
+  background: #E65100;
+}
+
+.atlas-input-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Scrollbar styling */
+.atlas-chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.atlas-chat-body::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  border-radius: 3px;
+}
+
+.dark-mode .atlas-chat-body::-webkit-scrollbar-thumb {
+  background: #FF8F00;
+}
