@@ -4,33 +4,38 @@ import './LandingPage.css';
 
 const LandingPage = () => {
   const navigate = useNavigate();
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // حالة القائمة
 
   return (
     <div className="landing-page">
-      {/* Header */}
       <header className="header">
         <div className="container">
           <nav className="navbar">
-            <div className="dropdown">
-              <a href="#" className="btn btn-outline">☰ القائمة</a>
-              <div className="dropdown-content">
-                <a href="#home">الرئيسية</a>
-                <a href="#services">خدماتنا</a>
-                <a href="#about">عنّا</a>
-                <a href="#pricing">التسعير</a>
-                <a href="#contact">تواصل معنا</a>
-                <a href='/return'>  ارجاع</a>
+            {/* زر القائمة للهاتف */}
+            <div className="mobile-menu-container">
+              <button 
+                className="btn btn-outline menu-toggle-btn"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                ☰ القائمة
+              </button>
+              
+              {/* تظهر هذه القائمة فقط إذا كانت isMenuOpen تساوي true */}
+              <div className={`nav-links-wrapper ${isMenuOpen ? 'active' : ''}`}>
+                <a href="#home" onClick={() => setIsMenuOpen(false)}>الرئيسية</a>
+                <a href="#services" onClick={() => setIsMenuOpen(false)}>خدماتنا</a>
+                <a href="#about" onClick={() => setIsMenuOpen(false)}>عنّا</a>
+                <a href="#pricing" onClick={() => setIsMenuOpen(false)}>التسعير</a>
+                <a href="#contact" onClick={() => setIsMenuOpen(false)}>تواصل معنا</a>
+                <a href='/return' onClick={() => setIsMenuOpen(false)}>ارجاع</a>
               </div>
             </div>
+
             <a href="#" className="logo">Stooreify</a>
-            <div className="auth-buttons">
-              <button  className="btn btn-outline"
-              onClick={() => navigate('/login')}
-              >تسجيل الدخول</button>
-              <button className="btn btn-primary"
-              onClick={() => navigate('/signup')}
-              >إنشاء حساب</button>
+
+            <div className="auth-buttons desktop-only">
+              <button className="btn btn-outline" onClick={() => navigate('/login')}>تسجيل الدخول</button>
+              <button className="btn btn-primary" onClick={() => navigate('/signup')}>إنشاء حساب</button>
             </div>
           </nav>
         </div>
